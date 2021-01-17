@@ -11,11 +11,11 @@ public class DynamicSearch {
      * entryFromTheEnd - same as entry, but from the end to (0,0)
      */
     static class Node {
-        int x,y,entry,numOfPaths,entryFromTheEnd;
+        int right, down,entry,numOfPaths,entryFromTheEnd;
 
-        public Node(int x, int y) {
-            this.x = x;
-            this.y = y;
+        public Node(int right, int down) {
+            this.right = right;
+            this.down = down;
             entry = 0;
             entryFromTheEnd = 0;
             numOfPaths = 1;
@@ -41,17 +41,18 @@ public class DynamicSearch {
         private void buildMatrix(){
             int n = mat.length, m = mat[0].length;
             for (int i = 1; i < n; i++){
-                mat[i][0].entry = mat[i-1][0].y +  mat[i-1][0].entry;
+                mat[i][0].entry = mat[i-1][0].down +  mat[i-1][0].entry;
                 mat[i][0].numOfPaths = 1;
             }
             for (int j = 1; j < m; j++){
-                mat[0][j].entry = mat[0][j-1].entry +  mat[0][j-1].x;
+                mat[0][j].entry = mat[0][j-1].entry +  mat[0][j-1].right;
                 mat[0][j].numOfPaths = 1;
             }
+
             for (int i = 1; i < n; i++){
                 for (int j = 1; j < m; j++){
-                    int y = mat[i-1][j].entry + mat[i-1][j].y;
-                    int x = mat[i][j-1].entry + mat[i][j-1].x;
+                    int y = mat[i-1][j].entry + mat[i-1][j].down;
+                    int x = mat[i][j-1].entry + mat[i][j-1].right;
                     mat[i][j].entry = x <= y ? x : y;
                     if (y < x) mat[i][j].numOfPaths = mat[i-1][j].numOfPaths;
                     else if (y > x) mat[i][j].numOfPaths = mat[i][j-1].numOfPaths;
@@ -92,9 +93,9 @@ public class DynamicSearch {
 
         private String getOnePathRec(int i, int j) {
             if(i == 0 && j == 0) return "";
-            if(i > 0 && j == 0) return getOnePathRec(i-1,0) + "1";
-            if(i == 0 && j > 0) return getOnePathRec(0,j-1) + "0";
-            if(mat[i][j].entry == mat[i-1][j].entry + mat[i-1][j].y) {
+            if(i > 0 && j == 0) return getOnePathRec(i-1,0) + "1"; //down
+            if(i == 0 && j > 0) return getOnePathRec(0,j-1) + "0"; //right
+            if(mat[i][j].entry == mat[i-1][j].entry + mat[i-1][j].down) {
                 return getOnePathRec(i-1,j) + "1";
             }
             else {
@@ -110,8 +111,8 @@ public class DynamicSearch {
             String ans = "";
             int i = mat.length-1, j = mat[0].length-1;
             while(i>0 && j>0){
-                int a = mat[i-1][j].entry+mat[i-1][j].y;
-                int b = mat[i][j-1].entry+mat[i][j-1].x;
+                int a = mat[i-1][j].entry+mat[i-1][j].down;
+                int b = mat[i][j-1].entry+mat[i][j-1].right;
                 if (a < b){
                     ans = "1" + ans;
                     i--;
@@ -154,8 +155,8 @@ public class DynamicSearch {
                 getAllPathsRec("0"+temp,0,j-1,ans);
             }
             else {
-                int a = mat[i-1][j].entry+mat[i-1][j].y;
-                int b = mat[i][j-1].entry+mat[i][j-1].x;
+                int a = mat[i-1][j].entry+mat[i-1][j].down;
+                int b = mat[i][j-1].entry+mat[i][j-1].right;
                 if(a < b) {
                     getAllPathsRec("1"+temp,i-1,j,ans);
                 }
@@ -186,15 +187,15 @@ public class DynamicSearch {
         private void buildMatrixFromTheEnd(){
             int n = mat.length-1, m = mat[0].length-1;
             for (int i = n-1; i >= 0; i--){
-                mat[i][m].entryFromTheEnd = mat[i][m].y +  mat[i+1][m].entryFromTheEnd;
+                mat[i][m].entryFromTheEnd = mat[i][m].down +  mat[i+1][m].entryFromTheEnd;
             }
             for (int j = m-1; j >= 0; j--){
-                mat[n][j].entryFromTheEnd = mat[n][j+1].entryFromTheEnd +  mat[n][j].x;
+                mat[n][j].entryFromTheEnd = mat[n][j+1].entryFromTheEnd +  mat[n][j].right;
             }
             for (int i = n-1; i >= 0; i--){
                 for (int j = m-1; j >= 0; j--){
-                    int y = mat[i+1][j].entryFromTheEnd + mat[i][j].y;
-                    int x = mat[i][j+1].entryFromTheEnd + mat[i][j].x;
+                    int y = mat[i+1][j].entryFromTheEnd + mat[i][j].down;
+                    int x = mat[i][j+1].entryFromTheEnd + mat[i][j].right;
                     mat[i][j].entryFromTheEnd = x <= y ? x : y;
                 }
             }
@@ -213,15 +214,15 @@ public class DynamicSearch {
                 }
             }
             for (int i=1; i<q2-q1+1; i++){
-                temp[i][0].entry = mat[i-1+q1][p1].y + temp[i-1][0].entry;
+                temp[i][0].entry = mat[i-1+q1][p1].down + temp[i-1][0].entry;
             }
             for (int j=1; j<p2-p1+1; j++){
-                temp[0][j].entry = temp[0][j-1].entry +  mat[q1][j-1+p1].x;
+                temp[0][j].entry = temp[0][j-1].entry +  mat[q1][j-1+p1].right;
             }
             for (int i=1; i<q2-q1+1; i++){
                 for (int j=1; j<p2-p1+1; j++){
-                    int x = temp[i-1][j].entry + mat[i-1+q1][j+p1].y;
-                    int y = temp[i][j-1].entry + mat[i+q1][j-1+p1].x;
+                    int x = temp[i-1][j].entry + mat[i-1+q1][j+p1].down;
+                    int y = temp[i][j-1].entry + mat[i+q1][j-1+p1].right;
                     temp[i][j].entry = x<=y ? x : y;
                 }
             }
@@ -235,12 +236,12 @@ public class DynamicSearch {
          */
         public boolean isOnBestPath(Node[] p) {
             sort(p);
-            int sum = mat[p[0].y][p[0].x].entry;
+            int sum = mat[p[0].down][p[0].right].entry;
             for (int i = 1; i < p.length; i++) {
-                if(p[i].y < p[i-1].y) return false;
-                sum += bestPathFromTo(p[i-1].x,p[i-1].y,p[i].x,p[i].y);
+                if(p[i].down < p[i-1].down) return false;
+                sum += bestPathFromTo(p[i-1].right,p[i-1].down,p[i].right,p[i].down);
             }
-            sum += bestPathFromTo(p[p.length-1].x,p[p.length-1].y,mat[0].length-1,mat.length-1);
+            sum += bestPathFromTo(p[p.length-1].right,p[p.length-1].down,mat[0].length-1,mat.length-1);
             return sum == cheapestPrice;
         }
 
@@ -252,7 +253,7 @@ public class DynamicSearch {
             }
             Node[] temp = new Node[p.length];
             for (int i = 0; i < p.length; i++) {
-                freqy[p[i].y].add(p[i]);
+                freqy[p[i].down].add(p[i]);
             }
             int k = 0;
             for (int i = 0; i < freqy.length; i++) {
@@ -267,7 +268,7 @@ public class DynamicSearch {
             }
             Node[] temp2 = new Node[p.length];
             for (int i = 0; i < temp.length; i++) {
-                freqx[temp[i].x].add(temp[i]);
+                freqx[temp[i].right].add(temp[i]);
             }
             k = 0;
             for (int i = 0; i < freqx.length; i++) {
