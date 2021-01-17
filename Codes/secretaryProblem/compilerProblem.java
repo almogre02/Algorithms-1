@@ -1,7 +1,10 @@
 package secretaryProblem;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class compilerProblem { //0(n*log(n))->mergeSort
-    class Program {
+    static class Program {
         String name;
         int len,freq;
 
@@ -47,5 +50,19 @@ public class compilerProblem { //0(n*log(n))->mergeSort
                 p[low + l] = temp[l];
             }
         }
+    public static void main(String[] args) {
+        Program[] a=new Program[5];
+        for (int i=0;i<5;i++){
+            Program p=new Program("i",(int)(Math.random()*100),(int)(Math.random()*100));
+            a[i]=p;
+        }
+        System.out.println(Arrays.toString(a));
+        getOptimalOrder(a);
+        System.out.println(Arrays.toString(a));
     }
+
+
+    }
+
+
 
