@@ -1,7 +1,6 @@
 # Algorithms-1
 Summary of all codes in the course
 
-
 ### Donuts problem
 ### Duel3d problem
 ### Alice & Bob problem
