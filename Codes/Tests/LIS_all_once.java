@@ -1,11 +1,28 @@
-package LIS;
+package Tests;
 
-public class LISDynamic {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-    /**
-     * dynamic programming of LIS - get the sequence
-     * Complexity: O(n^2)
-     */
+public class LIS_all_once {
+    public static int[] allOnce(int[] a, int[] b){
+        List<Integer> once=new ArrayList<>();
+        int count=0;
+        for (int i=0;i<b.length;i++){
+            if (b[i]==1)
+                count++;
+        }
+        int index=0;
+        int[] newArray=new int[count];
+        for (int i=0;i<b.length;i++) {
+            if (b[i] == 1) {
+                newArray[index] = a[i];
+                index++;
+            }
+        }
+        return LISDynamic(newArray);
+    }
+
     public static int[] LISDynamic(int[] arr) {
         int n = arr.length;
         int[][] mat = new int[n][n];
@@ -44,25 +61,10 @@ public class LISDynamic {
         return -1;
     }
 
-    /**
-     * dynamic programming of LIS - get the length only (can be done with array instead of matrix)
-     * Complexity: O(n*log n)
-     */
-    public static int LISDynamicLen(int[] arr) {
-        int n = arr.length;
-        int[][] mat = new int[n][n];
-        mat[0][0] = arr[0];
-        int len = 1;
-        for (int i = 1; i < n; i++) {
-            int index = binarySearchBetween(mat,len,arr[i]);
-            mat[index][index] = arr[i];
-            if(index == len) len++;
-        }
-        return len;
-    }
 
     public static void main(String[] args) {
-        System.out.println((LISDynamicLen(new int[] {1,-9})));//,2,100,101,3,4,5})));
-        int[] a={0,5,8,3,11,7,9,61};
+        int[] a={0,5,8,3,4,6,11,9,61};
+        int[] b={1,1,1,1,1,1,1,1,1};
+        System.out.println(Arrays.toString(allOnce(a,b)));
     }
 }

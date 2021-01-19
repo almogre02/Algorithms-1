@@ -165,8 +165,8 @@ public class dynamicLCS {
     }
 
     public static void main(String[] args) {
-        String a="abcde";
-        String b="eafddbac";
+        String a="1232412";
+        String b="243121";
         String c="asfddlfgkd";
         System.out.println(LCS_length(a,b));
         System.out.println(LCS_string(a,b));
