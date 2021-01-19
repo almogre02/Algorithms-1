@@ -1,5 +1,6 @@
 package gameNumbers;
 
+//o(n^2)
 public class GameOptimalDynamic {
 	int gameArr[];
 	int[][]mat;
