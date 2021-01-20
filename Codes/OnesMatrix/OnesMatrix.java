@@ -87,5 +87,6 @@ public class OnesMatrix {
                    ,{0,0,1,0,1}
                   };
         System.out.println(getBiggestSubMatrix(a));
+        System.out.println(getAllMaxSubSquares(a));
     }
 }

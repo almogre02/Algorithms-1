@@ -1,6 +1,5 @@
-package secretaryProblem;
+package compilerProblem;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class compilerProblem { //0(n*log(n))->mergeSort

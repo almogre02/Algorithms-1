@@ -3,7 +3,7 @@ package GlassBall;
 public class GlassBall {
     /**
      * Returns the minimum floor that causes breaking ball - using 2 balls and dividing the building into equal parts
-     * Complexity: O(sqrt(n)) - 2*sqrt(n) ===2*sqrt(n)
+     * Complexity: O(sqrt(n)) - 2*sqrt(n)) ===2*sqrt(n)
      */
     public static int glassBall1(int[] floors, int ball) {
         int n = floors.length;
@@ -29,7 +29,7 @@ public class GlassBall {
 
     /**
      * Returns the minimum floor that causes breaking ball - using 2 balls and dividing the building into different parts
-     * Complexity: O(sqrt(n)) - sqrt(2*n) ===sqrt(2*n)
+     * Complexity: O(sqrt(n)) - sqrt(2*n)) ===sqrt(2*n)
      */
     public static int glassBall2(int[] floors, int ball) {
         int n = floors.length;

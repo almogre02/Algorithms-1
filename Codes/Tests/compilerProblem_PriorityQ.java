@@ -1,7 +1,5 @@
 package Tests;
 
-import secretaryProblem.compilerProblem;
-
 import java.util.Arrays;
 import java.util.PriorityQueue;
 

@@ -30,7 +30,7 @@ public class AliceAndBobFlipCoinGame {
 //****************
 //**** game strategy 1 ****
 //****************
-    public static boolean GameStrategy1(){ //only alice-random number
+    public static boolean GameStrategy1(){ //only alice-random number ==50%
         boolean result = false;
         int AliceResult = AliceGame();
         if (AliceResult > 0)
@@ -42,7 +42,7 @@ public class AliceAndBobFlipCoinGame {
     //****************
 //**** game strategy 2 ****
 //****************
-    public static boolean GameStrategy2(){ //all say 1
+    public static boolean GameStrategy2(){ //all say 1 ==75%
         boolean result = false;
         int AliceResult = AliceGame();
         int BobResult = BobGame();
@@ -55,7 +55,7 @@ public class AliceAndBobFlipCoinGame {
 //***************
 //**** game strategy 2A ****
 //***************
-    public static boolean GameStrategy2A(){ //all say 0
+    public static boolean GameStrategy2A(){ //all say 0 ==75%
         boolean result = false;
         int AliceResult = AliceGame();
         int BobResult = BobGame();
@@ -68,7 +68,7 @@ public class AliceAndBobFlipCoinGame {
 //****************
 //**** game strategy 3 ****
 //****************
-    public static boolean GameStrategy3(){ //everyone say what they got
+    public static boolean GameStrategy3(){ //everyone say what they got ==50%
         boolean result = false;
         int AliceResult = AliceGame();
         int BobResult = BobGame();
@@ -81,7 +81,7 @@ public class AliceAndBobFlipCoinGame {
 //****************
 //**** game strategy 4 ****
 //****************
-    public static boolean GameStrategy4(){ // alice say what she got and bob call the opposite of what he received
+    public static boolean GameStrategy4(){ // alice say what she got and bob call the opposite of what he received ==100%
         boolean result = false;
         int AliceResult = AliceGame();
         int BobResult = BobGame();
