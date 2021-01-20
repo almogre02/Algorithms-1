@@ -2,7 +2,7 @@ package Tests;
 
 
 /**
- * LCS - Longest Un Common Substring
+ * Longest Un Common Substring
  * O(m*n)+o(m+n)+o(n) == 0(m*n)+o(2n+m)-->o(m*n)
  */
 public class L_not_CS {
@@ -54,6 +54,12 @@ public class L_not_CS {
         return ans;
     }
 
+    /**
+     * Longest Un Common Substring for String X
+     * @param X
+     * @param Y
+     * @return
+     */
     public static String LCS_Un_Common_string(String X, String Y) {
         String common = LCS_string(X, Y);
         String unCommon = "";
@@ -67,9 +73,39 @@ public class L_not_CS {
         return unCommon;
     }
 
+    /**
+     * Longest Un Common Substring for String X & String Y
+     * @param X
+     * @param Y
+     * @return
+     */
+    public static String LCS_Un_Common_string2(String X, String Y) {
+        String common = LCS_string(X, Y);
+        String unCommonX = "";
+        String unCommonY = "";
+        int x = 0;
+        int y = 0;
+        for (int i = 0; i < X.length(); i++) {
+            if (x<common.length() && X.charAt(i) != common.charAt(x))
+                unCommonX += X.charAt(i);
+            else
+                x++;
+
+            if (y<common.length() && Y.charAt(i) != common.charAt(y))
+                unCommonY += Y.charAt(i);
+            else
+                y++;
+        }
+        if (unCommonX.length()>unCommonY.length())
+            return unCommonX;
+        return unCommonY;
+    }
+
     public static void main(String[] args) {
         String a="vfaiu";
         String b="fsabhu";
         System.out.println(LCS_Un_Common_string(a,b));
+        System.out.println(LCS_Un_Common_string(b,a));
+        System.out.println(LCS_Un_Common_string2(a,b));
     }
 }
