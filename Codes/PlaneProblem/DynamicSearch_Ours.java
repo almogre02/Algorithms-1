@@ -101,7 +101,7 @@ public class DynamicSearch_Ours {
         }
 
     /**
-     * creats a dead area int the matrix between 2 points
+     * creates a dead area in the matrix between 2 points
      */
         public static Node[][] minPriceWithDeadArea(Node[][] m,Point p1,Point p2){
             if (p1.x==0 && p1.y==0 && p2.y==0 && p2.y==0)
@@ -114,7 +114,7 @@ public class DynamicSearch_Ours {
             if(p1.x <= p2.x && p1.y <= p2.y) {
                 for (int i = p1.x;  i <= p2.x ; i++) {
                     for (int j = p1.y; j <=p2.y ; j++) {
-                        m[i][j].price=Integer.MAX_VALUE;
+                        m[i][j].price=999999;
                     }
                 }
             }
