@@ -27,6 +27,7 @@ public class GameOptimalDynamic {
 		MyLibrary.printIntMatrix(mat);
 		return mat;
 	}
+	//not necessary for the cod
 	public int gameStrategy(){
 		int i=0, j = gameArr.length - 1;
 		int first=0, second=0;

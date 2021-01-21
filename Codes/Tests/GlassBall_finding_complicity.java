@@ -1,6 +1,11 @@
 package Tests;
 
-//returns the number of steps we throws the ball
+/**
+ * returns the number of steps we throws the ball
+ * מחזירה את מספר הצעדים שאנו נצטרך לזרוק את הכדור עד למציאת הקומה המינימאלית שבה הכדור יישבר
+ * 0(sqrt(2*n))
+ */
+
 public class GlassBall_finding_complicity {
 
     public static int glassBall2(int[] floors, int ball) {//O(sqrt(n)) - sqrt(2*n) ===sqrt(2*n)

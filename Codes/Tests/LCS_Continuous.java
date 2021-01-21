@@ -1,5 +1,10 @@
 package Tests;
 
+/**
+ * המחרוזת המשותפת הרציפה הארוכה ביותר
+ * o(m*n)
+ */
+
 public class LCS_Continuous {
     public static int LCS_Continuous(String a, String b) {
         int count = 0;

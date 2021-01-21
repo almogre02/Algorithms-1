@@ -2,7 +2,8 @@ package parkingProblem;
 
 public class ParkingProblem {
 	public static final int x = 0, v = 1;
-	
+
+
 	/**
 	 * parking problem with array (cycle array)
 	 * Complexity: O(n)
@@ -89,7 +90,7 @@ public class ParkingProblem {
 			if(m != null) m = m.getNext();
 			n = n.getNext();
 		}
-		if(m == null) return sizeOfList(list);
+		if(m == null) return sizeOfList(list);//in case there isn't a cycle
 		int count = 0;
 		m = list.getHead();
 		while(m != n) { // count the length of linear part

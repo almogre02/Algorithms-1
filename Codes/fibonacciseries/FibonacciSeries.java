@@ -4,7 +4,7 @@ public class FibonacciSeries {
     private static final int[][] F = {{1,1},{1,0}};
 
     /**
-     * returns the nth element in fibonacci series
+     * returns the n-th element in fibonacci series
      * Complexity: O(log n)
      */
     public static int fibo(int n) {
@@ -45,7 +45,7 @@ public class FibonacciSeries {
         return fiboRec(mulMat(A,A),n/2);
     }
 
-
+    //o(n)
     public static int FibonacciSeries(int n){
         int f1=1;
         int f2=1;
