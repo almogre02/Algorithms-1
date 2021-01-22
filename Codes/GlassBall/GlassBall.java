@@ -57,6 +57,6 @@ public class GlassBall {
         return n;
     }
     public static void main(String[] args) {
-        System.out.println(glassBall2(new int[] {10,20,30,40,50,60,70,80,90,100},88));
+        System.out.println(glassBall2(new int[] {10,20,30,40,50,60,70,80},68));
     }
 }
