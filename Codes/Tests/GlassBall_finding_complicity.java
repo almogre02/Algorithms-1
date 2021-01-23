@@ -91,6 +91,6 @@ public class GlassBall_finding_complicity {
     public static void main(String[] args) {
         System.out.println(glassBall2(new int[] {10,20,30,40,50,60,70,80},68));
         System.out.println(firstTry(new int[] {10,20,30,40,50,60,70,80,90,100,111,123,154,178,199}));
-        System.out.println(glassBall_k(new int[] {10,20,30,40,50,60,70,80,90,100},3,88));
+       // System.out.println(glassBall_k(new int[] {10,20,30,40,50,60,70,80,90,100},3,88));
     }
 }

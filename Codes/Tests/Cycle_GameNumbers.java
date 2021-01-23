@@ -46,7 +46,7 @@ public class Cycle_GameNumbers {
     }
 
     public static void main(String[] args) {
-        int[] b={9,10,8,0,1,4};
+        int[] b={1,3,6,1,3,6};
         System.out.println(numberGame(b));
     }
 

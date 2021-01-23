@@ -102,6 +102,7 @@ public class DynamicSearch_Ours {
 
     /**
      * creates a dead area in the matrix between 2 points
+     * worst case 0(m*n)
      */
         public static Node[][] minPriceWithDeadArea(Node[][] m,Point p1,Point p2){
             if (p1.x==0 && p1.y==0 && p2.y==0 && p2.y==0)
@@ -126,7 +127,8 @@ public class DynamicSearch_Ours {
                     {new Node(1,5),new Node(4,1),new Node(0,6)},
                     {new Node(4,7),new Node(2,5),new Node(0,3)},
                     {new Node(1,0),new Node(2,0),new Node(0,0)}};
-            System.out.println(minPrice(mat,new Point(0,1),new Point(1,2)));
+            //System.out.println(minPrice(mat,new Point(0,1),new Point(1,2)));
+            System.out.println(path(mat));
             System.out.println(isOnMinPath(mat,new Point(1,1),new Point(1,2)));
         }
     }

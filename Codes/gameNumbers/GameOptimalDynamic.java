@@ -1,6 +1,11 @@
 package gameNumbers;
 
-//o(n^2)
+/**
+ * f(i,j)=max(a[i]-f(i+1,j), a[j]-f(i,j-1))
+ * 0(n^2)
+ *
+ */
+
 public class GameOptimalDynamic {
 	int gameArr[];
 	int[][]mat;
@@ -66,6 +71,8 @@ public class GameOptimalDynamic {
 		return firstSum;
 	}
 	public static void main(String[] args) {
+		int[] test={1,3,6,1,3,6};
+		System.out.println(new GameOptimalDynamic(test));
 		//int[] arr={1,2,3,4};
 		//int[] arr={4,3,2,1};
 		//int arr[] = {5,10,20,1};
