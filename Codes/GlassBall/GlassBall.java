@@ -28,7 +28,7 @@ public class GlassBall {
     }
 
     /**
-     * Returns the minimum floor that causes breaking ball - using 2 balls and dividing the building into different parts
+     * Returns the minimum floor(index) that causes breaking ball - using 2 balls and dividing the building into different parts
      * Complexity: O(sqrt(n)) - sqrt(2*n)) ===sqrt(2*n)
      */
     public static int glassBall2(int[] floors, int ball) {
@@ -58,5 +58,7 @@ public class GlassBall {
     }
     public static void main(String[] args) {
         System.out.println(glassBall2(new int[] {10,20,30,40,50,60,70,80,90,100},120));
+        System.out.println(glassBall2(new int[] {10,20,30,40,50,60,70,80},68));
+
     }
 }

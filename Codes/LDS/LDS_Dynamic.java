@@ -63,7 +63,7 @@ public class LDS_Dynamic {
     }
 
     public static void main(String[] args) {
-        int[] a={0,5,8,3,11,7,9,61,4,3};
+        int[] a={0,5,8,3,11,7,9,61,4,3,2,1};
         System.out.println((LDSDynamicLen(a)));
         System.out.println(Arrays.toString(LDSDynamic(a)));
     }

@@ -10,7 +10,9 @@ public class EggDrop {
         // maximum of two integers
         static int max(int a, int b)
         {
-            return (a > b) ? a : b;
+            if (a>b) return a;
+            return b;
+           // return (a > b) ? a : b;
         }
 
         /* Function to get minimum number
@@ -50,12 +52,10 @@ needed for i eggs and j floors. */
                     }
                 }
             }
-
             // eggFloor[n][k] holds the result
             return eggFloor[n][k];
         }
 
-        /* Driver program to test to pront printDups*/
         public static void main(String args[])
         {
             int n = 5, k = 28;

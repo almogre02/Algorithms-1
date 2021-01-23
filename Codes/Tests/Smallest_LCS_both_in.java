@@ -1,10 +1,15 @@
 package Tests;
 //2020-moed a targil 1
-//מחזיר אץ המחרוזת הכי קצרה המשותפת לx ו y
+//מחזיר את המחרוזת הכי קצרה המשותפת לx ו y
+
+/**
+ * מחזירה את המחרוזת המשותפת הכי קצרה המכילה את שתי המילים
+ * 0(n*m)
+ */
 
 public class Smallest_LCS_both_in {
     static int mat[][];
-    public static int LCS_length(String X, String Y) {
+    public static int LCS_length(String X, String Y) {//0(n*m)
         int n = X.length()+1;
         int m = Y.length()+1;
         mat = new int[n][m];
@@ -21,7 +26,7 @@ public class Smallest_LCS_both_in {
         return mat[n-1][m-1];
     }
 
-    public static String LCS_string(String X, String Y) {
+    public static String LCS_string(String X, String Y) {//0(n*m)+o(m+n)
         int len = LCS_length(X,Y);
         int i = X.length();
         int j = Y.length();

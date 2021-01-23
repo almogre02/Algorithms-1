@@ -54,30 +54,7 @@ public class GlassBall_finding_complicity {
         return count;
     }
 
-    public static int glassBall_k(int[] floors,int k,int ball){
-        int numChecks=0;
-        int min=0;
-        int[][] checks=new int[k+1][floors.length+1];
-        for (int j = 0; j <floors.length ; j++) {
-            checks[0][j]=0;
-            checks[1][j]=1;
-        }
-        for (int i = 2; i <k ; i++) {
-            checks[i][0]=0;
-            checks[i][1]=1;
-            if (floors.length>=2)
-                checks[i][2]=2;
-            for (int j = 2; j < floors.length ; j++) {
-                min= floors.length+1;
-                for (int p = 1; p <j-1 ; p++) {
-                    min=Math.min(Math.max(checks[i-1][p-1],checks[i][j-p]),min)+1;
-                }
-                checks[i][j]=min;
-            }
-        }
-        numChecks=checks[k][floors.length];
-        return numChecks;
-    }
+
 
     public static int firstTry(int[] floors){
         int num=floors.length;
@@ -91,6 +68,5 @@ public class GlassBall_finding_complicity {
     public static void main(String[] args) {
         System.out.println(glassBall2(new int[] {10,20,30,40,50,60,70,80},68));
         System.out.println(firstTry(new int[] {10,20,30,40,50,60,70,80,90,100,111,123,154,178,199}));
-       // System.out.println(glassBall_k(new int[] {10,20,30,40,50,60,70,80,90,100},3,88));
     }
 }
