@@ -14,6 +14,7 @@ public class OlaYoredet {
             int b=LDSDynamicLen(arr,i+1);
             tempMax=a+b;
             //tempMax=LISDynamicLen(arr,i)+LDSDynamicLen(arr,i+1);
+
             if (tempMax>max)
                 max=tempMax;
             tempMax=0;
