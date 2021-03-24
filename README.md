@@ -1,5 +1,5 @@
 # Algorithms-1
-Summary of all codes in the course
+Summary of all the codes in the course
 
 ### Donuts problem
 ### Duel3d problem
