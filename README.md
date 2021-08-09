@@ -1,7 +1,7 @@
 # Algorithms-1
-Summary of all the codes in the course
+Summary of all the codes in Algorithms_1 course And thinking questionsץ 
 
-### Donuts problem
+### Donuts problem , ### Duel3d problem
 ### Duel3d problem
 ### Alice & Bob problem
 ### gameNumbers problem
